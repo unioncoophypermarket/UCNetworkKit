@@ -21,6 +21,7 @@ public
 enum BodyEncoding {
     case jsonSerializationData
     case stringEncodingAscii
+    case xWwwFormUrlEncoded
 }
 
 public

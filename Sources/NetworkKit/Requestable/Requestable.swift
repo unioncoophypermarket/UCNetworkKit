@@ -75,6 +75,8 @@ extension Requestable {
             return try? JSONSerialization.data(withJSONObject: bodyParameters)
         case .stringEncodingAscii:
             return bodyParameters.queryString.data(using: String.Encoding.ascii, allowLossyConversion: true)
+        case .xWwwFormUrlEncoded:
+            return bodyParameters.queryString.data(using: .utf8, allowLossyConversion: true)
         }
     }
 }
