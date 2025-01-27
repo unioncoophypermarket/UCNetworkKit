@@ -23,8 +23,9 @@ class PEMCertificateDelegate: NSObject, URLSessionDelegate {
         }
 
         do {
-            let cerData = try Data(contentsOf: self.certificateURL)
-            guard let certificate = SecCertificateCreateWithData(nil, cerData as CFData) else {
+            let certificateData = try Data(contentsOf: self.certificateURL)
+            print(certificateData as CFData)
+            guard let certificate = SecCertificateCreateWithData(nil, certificateData as CFData) else {
                 completionHandler(.cancelAuthenticationChallenge, nil)
                 return
             }
