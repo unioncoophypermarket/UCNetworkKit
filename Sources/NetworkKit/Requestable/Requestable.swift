@@ -54,16 +54,16 @@ extension Requestable {
         let url = try self.url(with: config)
         var urlRequest = URLRequest(url: url)
         var allHeaders: [String: String] = config.headers
-        headerParameters.forEach {
+        self.headerParameters.forEach {
             allHeaders.updateValue($1, forKey: $0)
         }
         
-        let bodyParameters = try bodyParametersEncodable?.toDictionary() ?? self.bodyParameters
+        let bodyParameters = try self.bodyParametersEncodable?.toDictionary() ?? self.bodyParameters
         if !bodyParameters.isEmpty {
-            urlRequest.httpBody = encodeBody(bodyParameters: bodyParameters, bodyEncoding: bodyEncoding)
+            urlRequest.httpBody = self.encodeBody(bodyParameters: bodyParameters, bodyEncoding: self.bodyEncoding)
         }
         urlRequest.timeoutInterval = 60
-        urlRequest.httpMethod = method.rawValue
+        urlRequest.httpMethod = self.method.rawValue
         urlRequest.allHTTPHeaderFields = allHeaders
         return urlRequest
     }
