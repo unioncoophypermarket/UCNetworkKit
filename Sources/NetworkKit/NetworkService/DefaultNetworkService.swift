@@ -48,7 +48,7 @@ extension DefaultNetworkService {
         self.logger?.log(request: request)
         do {
             let result = try await self.sessionManager.request(request)
-            self.interceptor?.interceptResponse(request, result.0)
+            self.interceptor?.interceptResponse(request, result.1, result.0)
             self.logger?.log(responseData: result.0, response: result.1)
             return try self.responseHandler.handleRequestResponse(data: result.0, response: result.1)
         } catch {
