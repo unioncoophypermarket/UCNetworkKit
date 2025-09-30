@@ -17,7 +17,7 @@ final class DefaultNetworkService {
     private let interceptor: Intercepting?
     
     public init(config: APIConfiguration,
-                sessionManager: NetworkSessionManager = URLSessionManager(),
+                sessionManager: NetworkSessionManager = DefaultNetworkSessionManager(sessionDelegate: DefaultSessionDelegate()),
                 responseHandler: ResponseHandler = DefaultResponseHandler(),
                 logger: NetworkLogger? = nil,
                 interceptor: Intercepting? = nil) {
@@ -34,10 +34,10 @@ extension DefaultNetworkService: NetworkService {
     
     public
     func request(endpoint: Requestable) async throws -> Data? {
-        let urlRequest = try endpoint.urlRequest(with: config)
+        let urlRequest = try endpoint.urlRequest(with: self.config)
         return try await request(request: urlRequest)
     }
-
+    
 }
 
 extension DefaultNetworkService {
@@ -56,7 +56,6 @@ extension DefaultNetworkService {
             self.interceptor?.interceptError(request, error)
             throw error
         }
-        
     }
     
     private
