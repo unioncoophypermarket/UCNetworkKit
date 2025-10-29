@@ -1,11 +1,11 @@
 import XCTest
-@testable import NetworkKit
+@testable import UCNetworkKit
 
-final class NetworkKitTests: XCTestCase {
+final class UCNetworkKitTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(NetworkKit().text, "Hello, Network Kit!")
+        XCTAssertEqual(UCNetworkKit().text, "Hello, Network Kit!")
     }
 }
