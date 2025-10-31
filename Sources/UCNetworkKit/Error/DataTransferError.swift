@@ -8,7 +8,7 @@
 import Foundation
 
 public
-enum DataTransferError: Error {
+enum DataTransferError: Error, Sendable {
     case noResponse
     case parsing(Error)
     case networkFailure(NetworkError)

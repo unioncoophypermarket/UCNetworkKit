@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol NetworkLogger {
+public protocol NetworkLogger: Sendable {
     func log(request: URLRequest)
     func log(responseData data: Data?, response: URLResponse?)
     func log(error: Error)

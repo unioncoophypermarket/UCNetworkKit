@@ -12,7 +12,7 @@ import Foundation
 
 
 public
-class DefaultNetworkSessionManager: NetworkSessionManager {
+final class DefaultNetworkSessionManager: NetworkSessionManager {
     
     private let sessionDelegate: URLSessionDelegate?
     

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - PEM File Delegate Implementation
 public
-class PEMCertificateDelegate: NSObject, URLSessionDelegate {
+final class PEMCertificateDelegate: NSObject, URLSessionDelegate {
     private let certificateURL: URL
 
     public init(certificateURL: URL) {

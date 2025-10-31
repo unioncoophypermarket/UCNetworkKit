@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Error Resolver
 
 public
-class DefaultDataTransferErrorResolver: DataTransferErrorResolver {
+final class DefaultDataTransferErrorResolver: DataTransferErrorResolver, Sendable {
     public init() { }
     
     public func resolve(error: NetworkError) -> Error {

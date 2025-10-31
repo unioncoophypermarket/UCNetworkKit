@@ -7,9 +7,9 @@
 
 import Foundation
 
-
 public
-protocol ResponseDecoder {
+protocol ResponseDecoder: Sendable {
     func decode<T: Decodable>(_ data: Data) throws -> T
 }
+
 

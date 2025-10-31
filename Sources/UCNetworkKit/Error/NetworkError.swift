@@ -8,7 +8,7 @@
 import Foundation
 
 public
-enum NetworkError: Error {
+enum NetworkError: Error, Sendable {
     case error(statusCode: Int, data: Data?)
     case notConnected
     case cancelled

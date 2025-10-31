@@ -8,7 +8,7 @@
 import Foundation
 
 public
-protocol Intercepting {
+protocol Intercepting: Sendable {
     func interceptRequest(_ request: URLRequest)
     func interceptResponse(_ request: URLRequest, _ response: URLResponse?, _ responseData: Data?)
     func interceptError(_ request: URLRequest, _ error: Error)

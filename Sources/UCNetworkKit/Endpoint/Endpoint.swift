@@ -8,7 +8,7 @@
 import Foundation
 
 public
-enum HTTPMethodType: String {
+enum HTTPMethodType: String, Sendable {
     case get     = "GET"
     case head    = "HEAD"
     case post    = "POST"
@@ -18,14 +18,14 @@ enum HTTPMethodType: String {
 }
 
 public
-enum BodyEncoding {
+enum BodyEncoding: Sendable {
     case jsonSerializationData
     case stringEncodingAscii
     case xWwwFormUrlEncoded
 }
 
 public
-class Endpoint<R>: ResponseRequestable {
+class Endpoint<R>: ResponseRequestable, @unchecked Sendable {
     
     public typealias Response = R
     

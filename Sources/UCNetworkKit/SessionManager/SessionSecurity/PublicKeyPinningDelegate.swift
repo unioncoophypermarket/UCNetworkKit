@@ -8,7 +8,7 @@
 import Foundation
 
 public
-class PublicKeyPinningDelegate: NSObject, URLSessionDelegate {
+final class PublicKeyPinningDelegate: NSObject, URLSessionDelegate {
     private let pinnedPublicKey: String
 
     public init(pinnedPublicKey: String) {

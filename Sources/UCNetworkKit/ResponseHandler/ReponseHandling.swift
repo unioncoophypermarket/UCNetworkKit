@@ -8,6 +8,6 @@
 import Foundation
 
 public
-protocol ResponseHandler {
+protocol ResponseHandler: Sendable {
     func handleRequestResponse(data: Data?, response: URLResponse?) throws -> Data?
 }
