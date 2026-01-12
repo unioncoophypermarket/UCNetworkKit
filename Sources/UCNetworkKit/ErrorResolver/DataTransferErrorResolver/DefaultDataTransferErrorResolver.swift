@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  DefaultDataTransferErrorResolver.swift
+//
 //
 //  Created by Mahmoud Alaa on 9/12/23.
 //

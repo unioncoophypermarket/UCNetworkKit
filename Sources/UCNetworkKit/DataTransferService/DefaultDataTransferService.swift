@@ -11,13 +11,13 @@ public
 final class DefaultDataTransferService {
     
     private let networkService: NetworkService
-    private let errorResolver: DataTransferErrorResolver
+    private let errorResolver: DataTransferErrorResolver?
     private let logger: NetworkLogger?
     
-    public 
+    public
     init(with networkService: NetworkService,
-                errorResolver: DataTransferErrorResolver = DefaultDataTransferErrorResolver(),
-                logger: NetworkLogger? = nil) {
+         errorResolver: DataTransferErrorResolver? = nil,
+         logger: NetworkLogger? = nil) {
         self.networkService = networkService
         self.errorResolver = errorResolver
         self.logger = logger
@@ -62,7 +62,10 @@ extension DefaultDataTransferService {
             return .resolvedNetworkFailure(error)
         }
         
-        let resolvedError = self.errorResolver.resolve(error: networkError)
+        guard let resolvedError = self.errorResolver?.resolve(error: networkError) else {
+            return .networkFailure(networkError)
+        }
+
         return .resolvedNetworkFailure(resolvedError)
     }
 }
