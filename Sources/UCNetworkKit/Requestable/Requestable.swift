@@ -8,7 +8,7 @@
 import Foundation
 
 public
-protocol Requestable {
+protocol Requestable: Sendable {
     var path: String { get }
     var isFullPath: Bool { get }
     var method: HTTPMethodType { get }

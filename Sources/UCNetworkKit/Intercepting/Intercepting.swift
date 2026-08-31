@@ -8,11 +8,10 @@
 import Foundation
 
 public
-protocol Intercepting {
+protocol Intercepting: Sendable {
     func interceptRequest(_ request: URLRequest)
     func interceptResponse(_ request: URLRequest, _ response: URLResponse?, _ responseData: Data?)
     func interceptError(_ request: URLRequest, _ error: Error)
-
     func retryRequest(_ request: URLRequest, dueTo error: Error) async -> URLRequest?
     func handleRetryFailure(_ request: URLRequest, dueTo error: Error) async
 }

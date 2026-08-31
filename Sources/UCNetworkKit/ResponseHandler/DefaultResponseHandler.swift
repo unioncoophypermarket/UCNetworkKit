@@ -8,7 +8,7 @@
 import Foundation
 
 public
-class DefaultResponseHandler: ResponseHandler {
+final class DefaultResponseHandler: ResponseHandler {
     
     public init() {}
     

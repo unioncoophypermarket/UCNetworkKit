@@ -8,7 +8,7 @@
 import Foundation
 
 public
-class JSONResponseDecoder: ResponseDecoder {
+final class JSONResponseDecoder: ResponseDecoder, Sendable {
     private let jsonDecoder = JSONDecoder()
     public init() { }
     public func decode<T: Decodable>(_ data: Data) throws -> T {

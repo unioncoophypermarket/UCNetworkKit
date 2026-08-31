@@ -8,7 +8,7 @@
 import Foundation
 
 public
-class DefaultSessionDelegate: NSObject, URLSessionDelegate {
+final class DefaultSessionDelegate: NSObject, URLSessionDelegate {
     
     public
     override init() {

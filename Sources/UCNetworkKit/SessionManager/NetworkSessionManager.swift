@@ -8,7 +8,7 @@
 import Foundation
 
 public
-protocol NetworkSessionManager {
+protocol NetworkSessionManager: Sendable {
     typealias Result = (Data?, URLResponse?)
     
     func request(_ request: URLRequest) async throws -> Result

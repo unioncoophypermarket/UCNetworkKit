@@ -8,7 +8,7 @@
 import Foundation
 
 public
-protocol DataTransferService {
+protocol DataTransferService: Sendable {
     
     func request<T: Decodable, E: ResponseRequestable>(with endpoint: E) async throws -> T where E.Response == T
     
@@ -16,5 +16,3 @@ protocol DataTransferService {
 //    func request<E: ResponseRequestable>(with endpoint: E) async throws where E.Response == Void
     
 }
-
-

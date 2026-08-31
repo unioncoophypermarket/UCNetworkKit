@@ -8,7 +8,7 @@
 import Foundation
 
 public
-final class DefaultNetworkService {
+final class DefaultNetworkService: Sendable {
     
     private let config: APIConfiguration
     private let sessionManager: NetworkSessionManager
@@ -86,4 +86,3 @@ extension DefaultNetworkService {
         return .generic(error)
     }
 }
-

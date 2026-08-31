@@ -8,7 +8,7 @@
 import Foundation
 
 public
-class RawDataResponseDecoder: ResponseDecoder {
+final class RawDataResponseDecoder: ResponseDecoder, Sendable {
     public init() { }
     
     enum CodingKeys: String, CodingKey {

@@ -8,6 +8,6 @@
 import Foundation
 
 public
-protocol DataTransferErrorResolver {
+protocol DataTransferErrorResolver: Sendable {
     func resolve(error: NetworkError) -> Error
 }
